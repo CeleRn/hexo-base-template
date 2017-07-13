@@ -58,9 +58,15 @@ module.exports = {
         },
 
         {
-            test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-            loader: 'file?name=[path][name].[ext]'
-        }]
+            test: /\.(png|jpg|svg|gif)$/,
+            loader: 'file?name=assets/images/[name].[ext]'
+        },
+        {
+            test: /\.(ttf|eot|woff|woff2)$/,
+            loader: 'file?name=assets/fonts/[path][name].[ext]'
+        },
+    
+        ]
 
     },
     plugins: [
