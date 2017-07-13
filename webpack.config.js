@@ -65,7 +65,7 @@ module.exports = {
     },
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
-        new extractCSS({ filename: 'assets/css/[name].css', allChunks: true}),
+        new extractCSS({ filename: 'assets/css/[name].css', allChunks: true }),
         new webpack.ProvidePlugin({
             NODE_ENV: JSON.stringify(NODE_ENV),
             //$: 'jquery'
@@ -73,7 +73,8 @@ module.exports = {
         new webpack.optimize.CommonsChunkPlugin({
             name: "commons",
             minChunks: 2
-        })
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ],
     // watch: NODE_ENV == 'development',
 
@@ -88,6 +89,9 @@ module.exports = {
     devServer: {
         contentBase: path.join(__dirname, "public"),
         publicPath: "/",
-        port: 9000
+        port: 9000,
+        proxy: {
+            "/": "http://localhost:4000"
+        }
     }
 };

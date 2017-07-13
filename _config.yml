@@ -78,3 +78,12 @@ theme: udelta
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type:
+
+
+livereload:
+  port: 35729
+
+browsersync:
+  logLevel: "warn"
+  ghostMode:
+    scroll: true
