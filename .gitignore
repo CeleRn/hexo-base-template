@@ -65,6 +65,10 @@ typings/
 # dotenv environment variables file
 .env
 
+<<<<<<< HEAD
 # Yarn
 yarn.lock
 
+=======
+C_/
+>>>>>>> feef16efe56ce81f4d3605c61b8a7803468a2cc6
