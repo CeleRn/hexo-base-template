@@ -80,10 +80,13 @@ deploy:
   type:
 
 
-livereload:
-  port: 35729
-
 browsersync:
   logLevel: "warn"
   ghostMode:
     scroll: true
+# server: "https://hexo-base-template-celern.c9users.io:8082/"
+  proxy:  "hexo-base-template-celern.c9users.io:8082"
+  port: 8082
+
+  script:
+    domain: "https://hexo-base-template-celern.c9users.io:8082"

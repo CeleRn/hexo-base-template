@@ -56,7 +56,10 @@ module.exports = {
             // rules for modules (configure loaders, parser options, etc.)
             { // Javascript
                 test: /\.js$/,
-                include: path.join(__dirname, "themes", "udelta", "assets"),
+                include: [
+                    path.join(__dirname, "themes", "udelta", "assets"),
+                    path.join(__dirname, "node_modules", "svg-sprite-loader", "lib", "plugin.js")
+                ],
                 use: "babel?presets[]=es2015"
             }, { // SCSS в файлы
                 test: /\.(sass|scss)$/,
@@ -122,11 +125,12 @@ module.exports = {
 
     // },
     devServer: {
-        contentBase: path.join(__dirname, "public"),
-        publicPath: "/",
-        port: 9000,
+        contentBase: __dirname + "/public/",
+        // inline: true,
+        // port: 8080,
+        // hot: true
         proxy: {
-            "/": "http://localhost:4000"
+            "/": "http://localhost:8081"
         }
     }
 };

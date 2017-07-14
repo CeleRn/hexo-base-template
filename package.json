@@ -8,8 +8,10 @@
   "scripts": {
     "dev:webpack": "webpack-dev-server",
     "dev:hexo": "hexo server",
-    "dev": "npm run dev:hexo && npm run dev:webpack",
-    "start": "concurrently -c \"blue,yellow\" -k -n hexo,webpack \"npm run dev:hexo\" \"npm run dev:webpack\""
+    "cloud9:webpack": "NODE_ENV=development webpack-dev-server --host $IP --port $PORT --public $C9_HOSTNAME --config webpack.config.js --progress --hot",
+    "cloud9:hexo": "hexo server -p 8081",
+    "start": "concurrently -c \"blue,yellow\" -k -n hexo,webpack \"npm run dev:hexo\" \"npm run dev:webpack\"",
+    "cloud9:start": "concurrently -c \"blue,yellow\" -k -n hexo,webpack \"npm run cloud9:hexo\" \"npm run cloud9:webpack\""
   },
   "dependencies": {
     "babel-core": "^6.25.0",
@@ -42,6 +44,7 @@
     "webpack-dev-server": "^2.5.1"
   },
   "devDependencies": {
+    "node-sass": "^4.5.3",
     "svg-sprite-loader": "^3.0.5"
   }
 }
